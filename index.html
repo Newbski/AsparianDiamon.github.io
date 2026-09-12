@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Asparian Diamond Hotel | Reservations</title>
+<style>
+:root{--navy:#122033;--gold:#c7a15a;--cream:#faf8f3;--ink:#202733;--muted:#6c7480;--line:#e7e2d8;--white:#fff;--green:#16745a}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--cream);line-height:1.5}
+button,input,select{font:inherit}button{cursor:pointer}.container{width:min(1160px,92%);margin:auto}
+header{background:rgba(18,32,51,.97);color:#fff;position:sticky;top:0;z-index:20;box-shadow:0 3px 15px #0002}.nav{height:74px;display:flex;align-items:center;justify-content:space-between}.logo{font-family:Georgia,serif;font-size:23px;letter-spacing:1px}.logo span{color:var(--gold);display:block;font-size:11px;letter-spacing:4px}.links{display:flex;gap:24px}.links a{color:#fff;text-decoration:none;font-size:14px}.links a:hover{color:#e7c87c}
+.hero{min-height:560px;background:linear-gradient(90deg,#07111ddd,#07111d44),url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1800&q=85') center/cover;display:flex;align-items:center;color:#fff}.hero-content{max-width:650px;padding:70px 0}.eyebrow{text-transform:uppercase;letter-spacing:4px;color:#e5c477;font-size:12px;font-weight:bold}.hero h1{font:56px Georgia,serif;line-height:1.08;margin:14px 0}.hero p{font-size:18px;max-width:570px;color:#eee;margin-bottom:26px}.gold-btn{background:var(--gold);color:#172234;border:0;padding:13px 20px;font-weight:bold;border-radius:4px}.outline-btn{background:transparent;color:#fff;border:1px solid #fff;padding:12px 20px;border-radius:4px;margin-left:8px}
+.booking{background:#fff;padding:22px;box-shadow:0 12px 35px #0001;margin-top:-38px;position:relative;border-top:4px solid var(--gold);border-radius:4px}.booking-grid{display:grid;grid-template-columns:1.2fr 1.2fr 1fr 1fr 1fr auto;gap:12px;align-items:end}.field label{font-size:11px;text-transform:uppercase;color:var(--muted);font-weight:bold;display:block;margin-bottom:6px}.field input,.field select{width:100%;padding:11px;border:1px solid var(--line);background:#fff;border-radius:3px}.section{padding:75px 0}.center{text-align:center}.section h2{font:38px Georgia,serif;color:var(--navy);margin-bottom:10px}.section-intro{color:var(--muted);max-width:680px;margin:0 auto 35px}
+.rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.room{background:#fff;border:1px solid var(--line);box-shadow:0 8px 25px #1220330d;overflow:hidden}.room img{width:100%;height:220px;object-fit:cover}.room-body{padding:20px}.room h3{font:24px Georgia,serif;color:var(--navy)}.room-meta{color:var(--muted);font-size:13px;margin:7px 0 12px}.amenities{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:15px}.amenities span{font-size:11px;background:#f1eee7;padding:5px 8px;border-radius:20px}.price{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:15px}.price strong{font-size:20px;color:var(--navy)}.price small{color:var(--muted)}.choose{background:var(--navy);color:#fff;border:0;padding:9px 13px;border-radius:3px}.choose:hover{background:#223c5d}
+.features{background:#fff}.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.feature{text-align:center;padding:20px}.feature b{display:block;margin:8px}.feature p{font-size:13px;color:var(--muted)}
+.reservation{background:var(--navy);color:#fff}.reserve-box{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:start}.reserve-box h2{color:#fff}.summary{background:#fff;color:var(--ink);padding:24px;border-radius:5px}.summary h3{font:24px Georgia,serif;color:var(--navy);margin-bottom:14px}.summary-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}.total{font-size:20px;font-weight:bold;padding-top:14px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form-grid .full{grid-column:1/-1}.form-grid input,.form-grid select{width:100%;padding:12px;border:1px solid #ffffff40;border-radius:3px;background:#fff}.confirm{width:100%;margin-top:14px;padding:13px;background:var(--gold);border:0;color:#142238;font-weight:bold;border-radius:3px}
+.modal{display:none;position:fixed;inset:0;background:#07111dcc;z-index:50;align-items:center;justify-content:center;padding:20px}.modal.show{display:flex}.modal-box{background:#fff;max-width:520px;width:100%;padding:28px;border-radius:6px}.modal-box h2{font:30px Georgia,serif;color:var(--navy);margin-bottom:8px}.modal-box p{color:var(--muted);margin-bottom:18px}.close{float:right;background:none;font-size:25px}.selected-room{padding:15px;background:#f5f1e8;border-left:4px solid var(--gold);margin:15px 0}.notice{padding:12px;background:#edf8f3;color:var(--green);margin-top:12px;font-size:13px;display:none}
+footer{background:#0c1725;color:#cbd3dc;padding:35px 0;text-align:center;font-size:13px}.footer-logo{font:24px Georgia,serif;color:#fff;margin-bottom:7px}
+@media(max-width:900px){.booking-grid{grid-template-columns:1fr 1fr}.rooms{grid-template-columns:1fr 1fr}.feature-grid{grid-template-columns:1fr 1fr}.reserve-box{grid-template-columns:1fr}.links{display:none}}
+@media(max-width:600px){.hero h1{font-size:40px}.hero{min-height:500px}.booking-grid,.rooms,.feature-grid,.form-grid{grid-template-columns:1fr}.section{padding:55px 0}.outline-btn{margin:8px 0 0}.hero-content{padding:40px 0}.room img{height:200px}}
+</style>
+</head>
+<body>
+<header><div class="container nav"><div class="logo">ASPARIAN DIAMOND<span>HOTEL & RESIDENCES</span></div><nav class="links"><a href="#home">Home</a><a href="#rooms">Rooms</a><a href="#amenities">Amenities</a><a href="#reservation">Reservations</a></nav><button class="gold-btn" onclick="scrollToReservation()">Book Now</button></div></header>
+
+<main id="home">
+<section class="hero"><div class="container hero-content"><div class="eyebrow">Luxury • Comfort • Exceptional Service</div><h1>Stay where every detail shines.</h1><p>Welcome to Asparian Diamond Hotel — an elegant destination designed for relaxing stays, memorable celebrations and seamless business travel.</p><button class="gold-btn" onclick="document.getElementById('rooms').scrollIntoView({behavior:'smooth'})">Explore Rooms</button><button class="outline-btn" onclick="scrollToReservation()">Make a Reservation</button></div></section>
+
+<section class="container booking" aria-label="Quick reservation search"><div class="booking-grid">
+<div class="field"><label>Check-in</label><input id="checkin" type="date"></div>
+<div class="field"><label>Check-out</label><input id="checkout" type="date"></div>
+<div class="field"><label>Guests</label><select id="guests"><option>1 Guest</option><option selected>2 Guests</option><option>3 Guests</option><option>4 Guests</option></select></div>
+<div class="field"><label>Rooms</label><select><option>1 Room</option><option>2 Rooms</option><option>3 Rooms</option></select></div>
+<div class="field"><label>Room type</label><select id="quickRoom"><option>Any Room</option><option>Deluxe King</option><option>Executive Twin</option><option>Diamond Suite</option></select></div>
+<button class="gold-btn" onclick="searchRooms()">Check Rates</button></div></section>
+
+<section class="section" id="rooms"><div class="container"><div class="center"><div class="eyebrow">Choose your stay</div><h2>Rooms & Suites</h2><p class="section-intro">Compare the rooms, view the photos, check the nightly price and choose the accommodation that fits your stay.</p></div><div class="rooms" id="roomCards"></div></div></section>
+
+<section class="section features" id="amenities"><div class="container"><div class="center"><div class="eyebrow">At your service</div><h2>Hotel Amenities</h2><p class="section-intro">Everything you need for a comfortable and memorable stay.</p></div><div class="feature-grid">
+<div class="feature">🏊<b>Infinity Pool</b><p>Relax with panoramic views and poolside service.</p></div><div class="feature">🍽️<b>Fine Dining</b><p>Local and international dishes prepared by our chefs.</p></div><div class="feature">💆<b>Wellness Spa</b><p>Recharge with relaxing treatments and wellness services.</p></div><div class="feature">📶<b>Free Wi‑Fi</b><p>Fast internet throughout guest rooms and public areas.</p></div>
+</div></div></section>
+
+<section class="section reservation" id="reservation"><div class="container reserve-box"><div><div class="eyebrow">Direct reservation</div><h2>Reserve your room</h2><p style="color:#cbd3dc;margin-top:12px">Select a room, enter your stay details and submit your reservation request. This school-project demo stores the reservation only in the current browser session.</p><div style="margin-top:25px;color:#e7c87c">✓ Best available room selection<br>✓ Clear nightly pricing<br>✓ Instant reservation confirmation demo</div></div>
+<div class="summary"><h3>Booking Details</h3><div class="summary-row"><span>Room</span><strong id="summaryRoom">No room selected</strong></div><div class="summary-row"><span>Check-in</span><span id="summaryIn">—</span></div><div class="summary-row"><span>Check-out</span><span id="summaryOut">—</span></div><div class="summary-row"><span>Guests</span><span id="summaryGuests">2 Guests</span></div><div class="summary-row total"><span>Estimated total</span><span id="summaryTotal">₱0</span></div>
+<form onsubmit="submitReservation(event)" style="margin-top:18px"><div class="form-grid"><input id="guestName" class="full" placeholder="Guest full name" required><input id="guestEmail" type="email" placeholder="Email address" required><input id="guestPhone" placeholder="Phone number" required><input id="guestRequests" class="full" placeholder="Special requests (optional)"><button class="confirm full" type="submit">Confirm Reservation</button></div></form><div class="notice" id="successNotice"></div></div></div></section>
+</main>
+<footer><div class="footer-logo">Asparian Diamond Hotel</div><div>Luxury accommodation • Elegant events • Exceptional hospitality</div><div style="margin-top:12px">© 2026 Asparian Diamond Hotel — Academic Website Project</div></footer>
+
+<div class="modal" id="roomModal"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><div class="eyebrow">Room details</div><h2 id="modalTitle"></h2><p id="modalDesc"></p><div class="selected-room" id="modalFeatures"></div><button class="gold-btn" onclick="chooseFromModal()">Choose This Room</button></div></div>
+
+<script>
+const rooms=[
+{name:'Deluxe King',price:4500,guests:2,beds:'1 King Bed',img:'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=80',desc:'A refined room with a king bed, work area and relaxing city view.',features:['King bed','City view','Free Wi‑Fi','Breakfast option']},
+{name:'Executive Twin',price:5200,guests:3,beds:'2 Twin Beds',img:'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=900&q=80',desc:'A spacious twin room ideal for friends, colleagues or small families.',features:['2 twin beds','Work desk','Smart TV','Breakfast option']},
+{name:'Diamond Suite',price:7800,guests:4,beds:'1 King + Sofa Bed',img:'https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=80',desc:'Our premium suite with a separate living area and elevated comfort.',features:['Suite lounge','King bed','Bathtub','Premium breakfast']}
+];
+let selected=null, modalRoom=null;
+function renderRooms(){
+document.getElementById('roomCards').innerHTML=rooms.map((r,i)=>`<article class="room"><img src="${r.img}" alt="${r.name}"><div class="room-body"><h3>${r.name}</h3><div class="room-meta">Up to ${r.guests} guests • ${r.beds}</div><div class="amenities">${r.features.map(x=>`<span>${x}</span>`).join('')}</div><div class="price"><div><strong>₱${r.price.toLocaleString()}</strong><small> / night</small></div><button class="choose" onclick="openRoom(${i})">View & Choose</button></div></div></article>`).join('');
+}
+function openRoom(i){modalRoom=i;const r=rooms[i];document.getElementById('modalTitle').textContent=r.name;document.getElementById('modalDesc').textContent=r.desc;document.getElementById('modalFeatures').innerHTML='<b>Includes</b><br>'+r.features.join(' • ')+`<br><br><strong>₱${r.price.toLocaleString()} / night</strong>`;document.getElementById('roomModal').classList.add('show')}
+function closeModal(){document.getElementById('roomModal').classList.remove('show')}
+function chooseFromModal(){selectRoom(modalRoom);closeModal()}
+function selectRoom(i){selected=rooms[i];document.getElementById('summaryRoom').textContent=selected.name;updateSummary();scrollToReservation()}
+function getNights(){const a=new Date(document.getElementById('checkin').value),b=new Date(document.getElementById('checkout').value);if(!isNaN(a)&&!isNaN(b)&&b>a)return Math.round((b-a)/86400000);return 1}
+function updateSummary(){document.getElementById('summaryIn').textContent=document.getElementById('checkin').value||'—';document.getElementById('summaryOut').textContent=document.getElementById('checkout').value||'—';document.getElementById('summaryGuests').textContent=document.getElementById('guests').value;document.getElementById('summaryTotal').textContent=selected?'₱'+(selected.price*getNights()).toLocaleString():'₱0'}
+function searchRooms(){const q=document.getElementById('quickRoom').value;if(q!=='Any Room'){const i=rooms.findIndex(r=>r.name===q);if(i>=0)selectRoom(i)}else document.getElementById('rooms').scrollIntoView({behavior:'smooth'});updateSummary()}
+function scrollToReservation(){document.getElementById('reservation').scrollIntoView({behavior:'smooth'});updateSummary()}
+function submitReservation(e){e.preventDefault();if(!selected){alert('Please choose a room first.');document.getElementById('rooms').scrollIntoView({behavior:'smooth'});return}const id='ADH-'+Math.floor(100000+Math.random()*900000);const notice=document.getElementById('successNotice');notice.style.display='block';notice.textContent=`Reservation request ${id} received for ${document.getElementById('guestName').value}. ${selected.name} is selected for ${getNights()} night(s).`;localStorage.setItem('asparianReservation',JSON.stringify({id,room:selected.name,name:document.getElementById('guestName').value}));}
+document.getElementById('checkin').addEventListener('change',updateSummary);document.getElementById('checkout').addEventListener('change',updateSummary);document.getElementById('guests').addEventListener('change',updateSummary);
+const today=new Date();const tomorrow=new Date(today);tomorrow.setDate(today.getDate()+1);const after=new Date(today);after.setDate(today.getDate()+2);document.getElementById('checkin').valueAsDate=tomorrow;document.getElementById('checkout').valueAsDate=after;
+renderRooms();updateSummary();
+</script>
+</body>
+</html>
